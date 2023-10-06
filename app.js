@@ -14,8 +14,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/uploads', express.static('uploads'))
 
 
+
+
 app.use('/extract-image', ExtractImage)
 
+app.get('/', (req, res) => {
+    res.send(`Express start at ${port}`)
+})
 
 app.post('/extract', (req, res) => {
 
@@ -42,5 +47,4 @@ app.post('/extract', (req, res) => {
 
 
 app.listen(port, () => {
-    console.log(`${port}`)
 })
